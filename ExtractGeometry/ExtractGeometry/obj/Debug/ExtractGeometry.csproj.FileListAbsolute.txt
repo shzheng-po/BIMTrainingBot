@@ -1,0 +1,6 @@
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\bin\Debug\ExtractGeometry.dll
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\bin\Debug\ExtractGeometry.pdb
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\Debug\ExtractGeometry.csproj.AssemblyReference.cache
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\Debug\ExtractGeometry.csproj.CoreCompileInputs.cache
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\Debug\ExtractGeometry.dll
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\Debug\ExtractGeometry.pdb

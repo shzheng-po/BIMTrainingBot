@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractGeometry", "ExtractGeometry\ExtractGeometry.csproj", "{59506D32-9347-4FC6-A38E-6FF5372E934D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Debug|x64.ActiveCfg = Debug|x64
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Debug|x64.Build.0 = Debug|x64
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Release|x64.ActiveCfg = Release|x64
+		{59506D32-9347-4FC6-A38E-6FF5372E934D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC500229-7AF5-4E5B-937C-080BBFFF6496}
+	EndGlobalSection
+EndGlobal

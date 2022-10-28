@@ -1,0 +1,9 @@
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\bin\x64\Debug\ExtractGeometry.dll
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\bin\x64\Debug\ExtractGeometry.pdb
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.AssemblyReference.cache
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.SQLGeometryForm.resources
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.WallForm.resources
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.GenerateResource.cache
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.CoreCompileInputs.cache
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.dll
+D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.pdb
