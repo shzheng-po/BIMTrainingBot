@@ -1,12 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <RevitAddIns>
+	<AddIn Type="Command">
+		<Text>Command Extract Geometry</Text>
+		<Description>Some description for Temp</Description>
+		<Assembly>ExtractGeometry.dll</Assembly>
+		<FullClassName>ExtractGeometry.Command</FullClassName>
+		<ClientId>b73399e0-500a-420a-bab0-cc03b3421304</ClientId>
+		<VendorId>Sheng Production</VendorId>
+		<VendorDescription>Sheng Production, https://github.com/shzheng-po</VendorDescription>
+	</AddIn>
 	<AddIn Type="Application">
 		<Name>Extract Geometry Plugin</Name>
-		<Assembly>D:\Revit-Addin\ExtractGeometry\ExtractGeometry\bin\x64\Debug\ExtractGeometry.dll</Assembly>
+		<Assembly>ExtractGeometry.dll</Assembly>
 		<AddInId>BE2804C7-AA2F-472E-A94A-3443BA025596</AddInId>
 		<FullClassName>ExtractGeometry.Application</FullClassName>
 		<Text>Extract Geometry of 3D Object</Text>
-		<VendorId>Sheng's Production</VendorId>
+		<VendorId>Sheng Production</VendorId>
 		<VendorDescription>https://github.com/shzheng-po</VendorDescription>
 	</AddIn>
 </RevitAddIns>

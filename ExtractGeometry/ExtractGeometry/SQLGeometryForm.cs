@@ -51,6 +51,7 @@ namespace ExtractGeometry
             bool vertexesDoesExist = TableExists(database, "Vertexes");
             bool elementAndEdgesDoesExits = TableExists(database, "ElementAndEdges");
             bool EdgesAndVertexesDoesExist = TableExists(database, "EdgesAndVertexes");
+            bool ModelInfoDoesExist = TableExists(database, "ModelInfomation");
 
             //This may need to get modified to -- if any doesn't exists, just create that table instead. Probably create a function to check this. 
             //Provide warning if any of the above table exists
@@ -128,6 +129,7 @@ namespace ExtractGeometry
                                                 "(" +
                                                 "ElementId   INT," +
                                                 "EdgeId  INT, " +
+                                                "IsLocationCurve BIT," +
                                                 ")";
 
                     SqlCommand command = sqlConnection.Query(elementAndEdgesQuery);
@@ -161,6 +163,38 @@ namespace ExtractGeometry
                     command.ExecuteNonQuery();
 
                     //TaskDialog.Show("Create SQL Table", "Point curve table created");
+                }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("SQL Error", ex.ToString());
+                }
+            }
+
+            if (ModelInfoDoesExist)
+            {
+                TaskDialog.Show("SQL Table Error", "Model creation table already exists.");
+            }
+            else
+            {
+                try
+                {
+                    string edgesAndVertexesQuery = "CREATE TABLE dbo.ModelCreationInfo" +
+                                                "(" +
+                                                "ElementId   INT," +
+                                                "LevelId INT, " +
+                                                "WallTypeId INT," +
+                                                "Height FLOAT(53)," +
+                                                "BaseOffset FLOAT(53)," +
+                                                "Flip BIT," +
+                                                //Store a list of curves for the profile
+                                                //--- Code ---
+                                                "TopConstraint INT," +
+                                                "TopOffset FLOAT(53)," +
+                                                "isStructural BIT," +
+                                                ")";
+
+                    SqlCommand command = sqlConnection.Query(edgesAndVertexesQuery);
+                    command.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -240,7 +274,8 @@ namespace ExtractGeometry
                     string elementTableQuery = "DROP TABLE dbo.Elements " + "\n" +
                                                "DROP TABLE dbo.ElementAndEdges" + "\n" +
                                                "DROP TABLE dbo.Vertexes" + "\n" +
-                                               "DROP TABLE dbo.EdgesAndVertexes";
+                                               "DROP TABLE dbo.EdgesAndVertexes" + "\n" +
+                                               "DROP TABLE dbo.ModelCreationInfo";
 
                     SqlCommand command = sqlConnection.Query(elementTableQuery);
                     command.ExecuteNonQuery();
@@ -258,6 +293,16 @@ namespace ExtractGeometry
             {
                 TaskDialog.Show("Delete Table", "Table does not exist in the SQL server");
             }
+        }
+
+        private void buttonImportDataFromDatabase_Click(object sender, EventArgs e)
+        {
+            //Display a warning log to confirm if they are in a clean model for creating the element
+
+            //Make sure all of the levels are created 
+
+            //using data to create the wall element
+
         }
     }
 }

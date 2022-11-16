@@ -18,30 +18,7 @@ namespace ExtractGeometry
     /// </summary>
     class WallGeometryDataTool : GeometryDataTool
     {
-        public override void SetInsertQueries()
-        {
-            //Future improvement: Combine create table and export data into one click button. If table name already exists, just create a copy of that table.
-            //insert query for inserting to wall table;
-            m_elementInsertQuery = "INSERT INTO " + "dbo.Elements" +
-                "(Id, UniqueId, TypeName, USAGE, Width) " +
-                "VALUES (@param1, @param2, @param3, @param4, @param5)";
-
-            //query for inserting to wallcurve table
-            m_elementCurveInsertQuery = "INSERT INTO " + "dbo.ElementAndEdges" +
-                "(ElementId, EdgeId) " +
-                "VALUES (@param1, @param2)";
-
-            //insert query for inserting to point curve table
-            m_elementCurvePointInsertQuery = "INSERT INTO " + "dbo.EdgesAndVertexes" +
-                "(VertexId, EdgeId, Status) " +
-                "VALUES (@param1, @param2, @param3)";
-            
-            //insert query for inserting to point table
-            m_elementPointInsertQuery = "INSERT INTO " + "dbo.Vertexes" +
-                "(Id, X, Y, Z) " +
-                "VALUES (@param1, @param2, @param3, @param4)";
-        }
-
+       
         protected override void CollectElements()
         {
             FilteredElementCollector collector = new FilteredElementCollector(m_doc);
@@ -50,7 +27,7 @@ namespace ExtractGeometry
 
         protected override string GetElementTypeName()
         {
-            return "Wall";
+            return "Walls";
         }
     }
     /// <summary>
@@ -58,30 +35,7 @@ namespace ExtractGeometry
     /// </summary>
     class FloorGeometryDataTool : GeometryDataTool
     {
-        public override void SetInsertQueries()
-        {
-            //Future improvement: Combine create table and export data into one click button. If table name already exists, just create a copy of that table.
-            //insert query for inserting to wall table;
-            m_elementInsertQuery = "INSERT INTO " + "dbo.Elements" +
-                "(Id, UniqueId, TypeName, USAGE, Width) " +
-                "VALUES (@param1, @param2, @param3, @param4, @param5)";
-
-            //query for inserting to wallcurve table
-            m_elementCurveInsertQuery = "INSERT INTO " + "dbo.ElementAndEdges" +
-                "(ElementId, EdgeId) " +
-                "VALUES (@param1, @param2)";
-
-            //insert query for inserting to point curve table
-            m_elementCurvePointInsertQuery = "INSERT INTO " + "dbo.EdgesAndVertexes" +
-                "(VertexId, EdgeId, Status) " +
-                "VALUES (@param1, @param2, @param3)";
-
-            //insert query for inserting to point table
-            m_elementPointInsertQuery = "INSERT INTO " + "dbo.Vertexes" +
-                "(Id, X, Y, Z) " +
-                "VALUES (@param1, @param2, @param3, @param4)";
-        }
-
+        
         protected override void CollectElements()
         {
             FilteredElementCollector collector = new FilteredElementCollector(m_doc);
@@ -90,7 +44,7 @@ namespace ExtractGeometry
 
         protected override string GetElementTypeName()
         {
-            return "Floor";
+            return "Floors";
         }
     }
     /// <summary>
@@ -98,30 +52,7 @@ namespace ExtractGeometry
     /// </summary>
     class FramingGeometryDataTool : GeometryDataTool
     {
-        public override void SetInsertQueries()
-        {
-            //Future improvement: Combine create table and export data into one click button. If table name already exists, just create a copy of that table.
-            //insert query for inserting to wall table;
-            m_elementInsertQuery = "INSERT INTO " + "dbo.Elements" +
-                "(Id, UniqueId, TypeName, USAGE, Width) " +
-                "VALUES (@param1, @param2, @param3, @param4, @param5)";
-
-            //query for inserting to wallcurve table
-            m_elementCurveInsertQuery = "INSERT INTO " + "dbo.ElementAndEdges" +
-                "(ElementId, EdgeId) " +
-                "VALUES (@param1, @param2)";
-
-            //insert query for inserting to point curve table
-            m_elementCurvePointInsertQuery = "INSERT INTO " + "dbo.EdgesAndVertexes" +
-                "(VertexId, EdgeId, Status) " +
-                "VALUES (@param1, @param2, @param3)";
-
-            //insert query for inserting to point table
-            m_elementPointInsertQuery = "INSERT INTO " + "dbo.Vertexes" +
-                "(Id, X, Y, Z) " +
-                "VALUES (@param1, @param2, @param3, @param4)";
-        }
-
+        
         protected override void CollectElements()
         {
             FilteredElementCollector collector = new FilteredElementCollector(m_doc);
@@ -138,30 +69,7 @@ namespace ExtractGeometry
     /// </summary>
     class ColumnGeometryDataTool : GeometryDataTool
     {
-        public override void SetInsertQueries()
-        {
-            //Future improvement: Combine create table and export data into one click button. If table name already exists, just create a copy of that table.
-            //insert query for inserting to wall table;
-            m_elementInsertQuery = "INSERT INTO " + "dbo.Elements" +
-                "(Id, UniqueId, TypeName, USAGE, Width) " +
-                "VALUES (@param1, @param2, @param3, @param4, @param5)";
-
-            //query for inserting to wallcurve table
-            m_elementCurveInsertQuery = "INSERT INTO " + "dbo.ElementAndEdges" +
-                "(ElementId, EdgeId) " +
-                "VALUES (@param1, @param2)";
-
-            //insert query for inserting to point curve table
-            m_elementCurvePointInsertQuery = "INSERT INTO " + "dbo.EdgesAndVertexes" +
-                "(VertexId, EdgeId, Status) " +
-                "VALUES (@param1, @param2, @param3)";
-
-            //insert query for inserting to point table
-            m_elementPointInsertQuery = "INSERT INTO " + "dbo.Vertexes" +
-                "(Id, X, Y, Z) " +
-                "VALUES (@param1, @param2, @param3, @param4)";
-        }
-
+        
         protected override void CollectElements()
         {
             FilteredElementCollector collector = new FilteredElementCollector(m_doc);
@@ -208,6 +116,11 @@ namespace ExtractGeometry
         /// Contains: Point Id, X, Y, Z
         /// </summary>
         protected string m_elementPointInsertQuery;
+
+        /// <summary>
+        /// The query string for inserting to model creation table;
+        /// </summary>
+        protected string m_elementModelCreationInsertQuery;
         #endregion
 
         #region Result Storage 
@@ -233,7 +146,32 @@ namespace ExtractGeometry
         /// <summary>
         /// override this to set queries for geometry extraction
         /// </summary>
-        public abstract void SetInsertQueries();
+        public void SetInsertQueries()
+        {
+            //insert query for inserting to element table;
+            m_elementInsertQuery = "INSERT INTO " + "dbo.Elements" +
+                "(Id, UniqueId, TypeName, USAGE, Width) " +
+                "VALUES (@param1, @param2, @param3, @param4, @param5)";
+
+            //query for inserting to element curve table
+            m_elementCurveInsertQuery = "INSERT INTO " + "dbo.ElementAndEdges" +
+                "(ElementId, EdgeId, isLocationCurve) " +
+                "VALUES (@param1, @param2, @param3)";
+
+            //insert query for inserting to point curve table
+            m_elementCurvePointInsertQuery = "INSERT INTO " + "dbo.EdgesAndVertexes" +
+                "(VertexId, EdgeId, Status) " +
+                "VALUES (@param1, @param2, @param3)";
+
+            //insert query for inserting to point table
+            m_elementPointInsertQuery = "INSERT INTO " + "dbo.Vertexes" +
+                "(Id, X, Y, Z) " +
+                "VALUES (@param1, @param2, @param3, @param4)";
+
+            m_elementModelCreationInsertQuery = "INSERT INTO " + "dbo.ModelCreationInfo" +
+                "(ElementId, LevelId, WallTypeId, Height, BaseOffset, Flip, TopConstraint, TopOffset, isStructural)" +
+                "VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8, @param9)";
+        }
 
         /// <summary>
         /// override this to populate the list of elements for geometry extraction
@@ -301,8 +239,43 @@ namespace ExtractGeometry
         private void RetrieveGeometryDataOfElement(Element e, Autodesk.Revit.ApplicationServices.Application app)
         {
             ElementInfo eInfo = new ElementInfo();
+            ModelCreation modelCreationInfo = new ModelCreation();
             List<(XYZ, int, string)> pointInfo = new List<(XYZ, int, string)>();
+            List<(Curve, bool)> edgeInfo = new List<(Curve, bool)>();
             List<Curve> edges = GetEdges(e, app);
+            foreach(var edge in edges)
+            {
+                edgeInfo.Add((edge, false));
+            }
+
+            //Retrieve element information from model 
+            //previously used to use a switch statement on category
+            //so that we can treat each type of revit data differently.
+            switch (e.Category.Name)
+            {
+                case "Walls":
+                    Wall wall = (Wall)e;
+                    modelCreationInfo.LevelId = wall.LevelId;
+                    LocationCurve wallLine = wall.Location as LocationCurve;
+                    modelCreationInfo.BaseCurve = wallLine.Curve;
+                    //Add curve to edges List to be stored in edges category of result storage and confirm that wallline curve is location curve
+                    edges.Add(wallLine.Curve);
+                    edgeInfo.Add((wallLine.Curve, true));
+                    modelCreationInfo.WallTypeId = wall.WallType.Id;
+                    modelCreationInfo.flip = wall.Flipped;
+                    break;
+                case "Structural Framing":
+                    //Collect model creation info for framings
+                    break;
+
+                case "Structural Columns":
+                    //Collect model creation info for columns
+                    break;
+                case "Floors":
+                    //Collect model creation info for floors
+                    break;
+            }
+            
             List<XYZ> vertexes = new List<XYZ>();
             for (int i = 0; i < edges.Count; i++)
             {
@@ -313,6 +286,8 @@ namespace ExtractGeometry
                 pointInfo.Add(t1);
                 pointInfo.Add(t2);
 
+                //Remove duplicate points
+                //points can be duplicated because an endpoint of a curve could be a startpoint of another curve.
                 if (vertexes.Contains(startPoint) == false)
                 {
                     vertexes.Add(startPoint);
@@ -330,15 +305,32 @@ namespace ExtractGeometry
                 {
                     eInfo.familyNameAndType = GetParameterValue(para);
                 }
+                else if (para.Definition.Name == "Top Constraint")
+                {
+                    modelCreationInfo.TopConstraint = para.AsElementId();
+                }
+                else if (para.Definition.Name == "Top Offset")
+                {
+                    modelCreationInfo.TopOffset = para.AsDouble();
+                }
+                else if(para.Definition.Name == "Structural")
+                {
+                    modelCreationInfo.isStructural = para.AsInteger() == 1;
+                }
+                //else if(para.Definition.Name == "")
+                //{
+                //
+                //}
                 else
                 {
                     continue;
                 }
             }
-            
+
             eInfo.vertexes = vertexes;
-            eInfo.edges = edges;
+            eInfo.edges = edgeInfo;
             eInfo.vertexInfoToEdge = pointInfo;
+            eInfo.ModelCreationInfo = modelCreationInfo;
 
             //stores data to result storage region
             m_elementCollections.Add(e.Id, eInfo);
@@ -599,6 +591,7 @@ namespace ExtractGeometry
         /// <param name="sqlConnection"></param>
         public void ReportResults(SQLDBConnect sqlConnection)
         {
+            //Retrieve data from storage class and insert into SQL Database
             foreach (var elementCollection in m_elementCollections)
             {
                 ElementId eId = elementCollection.Key;
@@ -622,15 +615,16 @@ namespace ExtractGeometry
                     }
                 }
 
-                for(int i = 0; i < elementCollection.Value.edges.Count; i++)
+                //Insert data into Element curve table
+                for (int i = 0; i < elementCollection.Value.edges.Count; i++)
                 {
-                    //Insert data into Wall curve table
                     using (SqlCommand command = sqlConnection.Query(m_elementCurveInsertQuery))
                     {
                         try
                         {
                             command.Parameters.AddWithValue("@param1", int.Parse(eId.ToString()));
                             command.Parameters.AddWithValue("@param2", i);
+                            command.Parameters.AddWithValue("@param3", elementCollection.Value.edges[i].Item2);
                             command.ExecuteNonQuery();
                         }
                         catch (Exception ex)
@@ -640,9 +634,9 @@ namespace ExtractGeometry
                     }
                 }
 
-                for(int i = 0; i < elementCollection.Value.vertexes.Count; i++)
+                //Insert data into vertexes table 
+                for (int i = 0; i < elementCollection.Value.vertexes.Count; i++)
                 {
-                    //Insert vertexes data. 
                     using (SqlCommand command = sqlConnection.Query(m_elementPointInsertQuery))
                     {
                         try
@@ -660,13 +654,13 @@ namespace ExtractGeometry
                     }
                 }
 
-                for(int i = 0; i < elementCollection.Value.vertexInfoToEdge.Count; i++)
+                //Insert point relation data to curve data table
+                for (int i = 0; i < elementCollection.Value.vertexInfoToEdge.Count; i++)
                 {
                     XYZ currentPoint = elementCollection.Value.vertexInfoToEdge[i].Item1;
                     int curveIndex = elementCollection.Value.vertexInfoToEdge[i].Item2;
                     string currentPointStatus = elementCollection.Value.vertexInfoToEdge[i].Item3;
 
-                    //Insert point relation to curve data table
                     using (SqlCommand command = sqlConnection.Query(m_elementCurvePointInsertQuery))
                     {
                         try
@@ -680,6 +674,47 @@ namespace ExtractGeometry
                         {
                             TaskDialog.Show("SQL Insert Error", ex.ToString());
                         }
+                    }
+                }
+
+                //Insert Data into model creation info
+                using (SqlCommand command = sqlConnection.Query(m_elementModelCreationInsertQuery))
+                {
+                    try
+                    {
+                        command.Parameters.AddWithValue("@param1", int.Parse(eId.ToString()));
+                        if (elementCollection.Value.ModelCreationInfo.LevelId != null)
+                            command.Parameters.AddWithValue("@param2", int.Parse(elementCollection.Value.ModelCreationInfo.LevelId.ToString()));
+                        else
+                        {
+                            command.Parameters.AddWithValue("@param2", null);
+                            continue;
+                        }
+
+                        if (elementCollection.Value.ModelCreationInfo.WallTypeId != null)
+                            command.Parameters.AddWithValue("@param3", int.Parse(elementCollection.Value.ModelCreationInfo.WallTypeId.ToString()));
+                        else
+                        {
+                            command.Parameters.AddWithValue("@param3", null);
+                            continue;
+                        }
+                        command.Parameters.AddWithValue("@param4", elementCollection.Value.ModelCreationInfo.Height);
+                        command.Parameters.AddWithValue("@param5", elementCollection.Value.ModelCreationInfo.Offset);
+                        command.Parameters.AddWithValue("@param6", elementCollection.Value.ModelCreationInfo.flip);
+                        if (elementCollection.Value.ModelCreationInfo.TopConstraint != null)
+                            command.Parameters.AddWithValue("@param7", int.Parse(elementCollection.Value.ModelCreationInfo.TopConstraint.ToString()));
+                        else
+                        {
+                            command.Parameters.AddWithValue("@param7", null);
+                            continue;
+                        }
+                        command.Parameters.AddWithValue("@param8", elementCollection.Value.ModelCreationInfo.TopOffset);
+                        command.Parameters.AddWithValue("@param9", elementCollection.Value.ModelCreationInfo.isStructural);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        TaskDialog.Show("SQL Insert Error", ex.ToString());
                     }
                 }
             }
@@ -703,7 +738,7 @@ namespace ExtractGeometry
             /// <summary>
             /// Lists of edges that a element contains
             /// </summary>
-            public List<Curve> edges { get; set; }
+            public List<(Curve, bool)> edges { get; set; }
 
             /// <summary>
             /// List that stores points, relations to the curve at index, and it's associated position to whether it is a startpoint or endpoint
@@ -711,6 +746,53 @@ namespace ExtractGeometry
             public List<(XYZ, int, string)> vertexInfoToEdge { get; set; }
 
             public List<XYZ> vertexes { get; set; }
+
+            //add in the ModelCreationInfo class as element info
+            //this will be used to extract to database later
+            public ModelCreation ModelCreationInfo { get; set;}
+        }
+
+        /// <summary>
+        /// information about model creations
+        /// Store all of the information about 
+        /// walls, columns, floors, framing elements in one class
+        /// </summary>
+        class ModelCreation
+        {
+            #region Shared Creation Info
+            //Level Information
+            public ElementId LevelId { get; set; }
+            #endregion
+
+            #region Wall Specific Creation Info
+            //Wall centerline that determines the direction and length of wall
+            public Curve BaseCurve { get; set; }
+
+            //Stores if this wall is structural element
+            public bool isStructural { get; set; }
+
+            //typeId
+            public ElementId WallTypeId { get; set; }
+
+            //height 
+            public double Height { get; set; }
+
+            //base offset of the wall  
+            public double Offset { get; set; }
+
+            //flip wether a wall is flip in its orientation or not
+            public bool flip { get; set; }  
+
+            //curve defining profile of a wall
+            public IList<Curve> Profile { get; set; }
+
+            //Top constraint
+            public ElementId TopConstraint { get; set; }
+
+            //Top Offset
+            public double TopOffset { get; set; }
+            #endregion
+
         }
     }
 }

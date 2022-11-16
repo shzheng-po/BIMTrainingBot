@@ -7,3 +7,13 @@ D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csp
 D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.CoreCompileInputs.cache
 D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.dll
 D:\Revit-Addin\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.pdb
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\bin\x64\Debug\ExtractGeometry.dll
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\bin\x64\Debug\ExtractGeometry.pdb
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.AssemblyReference.cache
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.g.resources
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.SQLGeometryForm.resources
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.WallForm.resources
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.GenerateResource.cache
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.csproj.CoreCompileInputs.cache
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.dll
+C:\Users\Zheng\Documents\GitHub\BIMTrainingBot\ExtractGeometry\ExtractGeometry\obj\x64\Debug\ExtractGeometry.pdb

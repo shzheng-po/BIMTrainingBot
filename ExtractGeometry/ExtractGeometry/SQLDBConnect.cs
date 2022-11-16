@@ -20,7 +20,8 @@ namespace ExtractGeometry
 
         public void ConnectDB()
         {
-            connect = new SqlConnection("Data Source = localhost; Initial Catalog = RevitDB; Integrated Security = True");
+            //Check if database is connected and copy the connection string to the below SQLConnection method..
+            connect = new SqlConnection("Data Source=DESKTOP-FNRCLIA;Initial Catalog=RevitDB;Integrated Security=True");
             connect.Open();
         }
 

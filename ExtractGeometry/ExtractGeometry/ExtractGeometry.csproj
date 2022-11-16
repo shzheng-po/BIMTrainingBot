@@ -49,6 +49,9 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -103,13 +106,26 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\SQL.jpg" />
+    <Resource Include="Resources\SQL.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetDir)ExtractGeometry.dll" "$(AppData)\Autodesk\Revit\Addins\2021"
+    <PostBuildEvent>if exist "$(AppData)\Autodesk\REVIT\Addins\2021" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2021"
+if exist "$(AppData)\Autodesk\REVIT\Addins\2021" copy "$(ProjectDir)$(OutputPath)*.dll" "$(AppData)\Autodesk\REVIT\Addins\2021"
+if exist "$(AppData)\Autodesk\REVIT\Addins\2021\Resources" copy "$(ProjectDir)\Resources\SQL.jpg" "$(AppData)\Autodesk\REVIT\Addins\2021\Resources"
 
-if exist "($AppData)\Autodesk\REVIT\Addins\2021" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2021"
-if exist "$(AppData)\Autodesk\REVIT\Addins\2021\Resources" copy "$(ProjectDir)\Resources\SQL.jpg" "$(AppData)\Autodesk\REVIT\Addins\2021\Resources"</PostBuildEvent>
+if %25ERRORLEVEL%25 GEQ 8 goto failed
+
+rem end of batch file
+GOTO success
+
+:failed
+rem do not pause as it will pause msbuild.
+exit 1
+
+:success
+exit 0</PostBuildEvent>
   </PropertyGroup>
 </Project>

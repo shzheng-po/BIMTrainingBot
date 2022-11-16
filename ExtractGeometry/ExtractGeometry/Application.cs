@@ -38,6 +38,7 @@ namespace ExtractGeometry
             {
                 button.ToolTip = "Extract the geometry information from Revit";
 
+                //Fix for later: The Resources folder currently needs to be manually created in the Addin Folder in order to get logo copied correctly.
                 Uri uri = new Uri(Path.Combine(Path.GetDirectoryName(thisAssemblyPath), "Resources", "SQL.jpg"));
                 BitmapImage bitmap = new BitmapImage(uri);
                 button.LargeImage = bitmap;
