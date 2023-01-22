@@ -1,2 +1,2 @@
 # BIMTrainingBot
- This repository contains code to generate BIM data from Revit and use for ML training 
+ This repository contains code to generate BIM data from Revit and export into a SQL database formate
